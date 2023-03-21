@@ -19,8 +19,7 @@ class CuentaJoven(Cuenta):
         self._bonificacion = value
     
     def es_titular_valido(self):
-        edad = date.today().year - self.titular.fecha_nacimiento.year
-        return self.titular.es_mayor_de_edad() and edad < 25
+        return self.titular.es_mayor_de_edad() and self.titular.edad < 25
     
     def retirar(self, cantidad: float):
         if not self.es_titular_valido():
